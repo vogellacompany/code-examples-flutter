@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.2.4 <4.0.0'
 
 dependencies:
+  cubixd: ^0.1.1
   flutter:
     sdk: flutter
 
@@ -17,3 +18,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/larsvogel.png
+    - assets/images/kiranvogelnerlich.jpeg
+    - assets/images/avatar.png
+    - assets/images/jennifernerlich.jpg
+
