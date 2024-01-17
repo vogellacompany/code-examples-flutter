@@ -13,7 +13,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Exercise> data = MathProvider.createPageData(2);
+  static int complexity = 1;
+  List<Exercise> data = MathProvider.createPageData(complexity);
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // Replace the tapped element with a new value
     setState(
       () {
-        data[index] = MathProvider.newExercise();
+        data[index] = MathProvider.newExercise(complexity);
       },
     );
   }

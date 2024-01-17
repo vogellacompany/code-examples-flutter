@@ -8,7 +8,7 @@ import 'package:pdf/widgets.dart';
 Future<Uint8List> makePdf(List<Exercise> exercises) async {
   final pdf = Document();
 
-  const int chunkSize = 24;
+  const int chunkSize = 28;
 
   for (int i = 0; i < exercises.length; i += chunkSize) {
     List<Exercise> chunk = exercises.sublist(i, i + chunkSize);
@@ -20,40 +20,29 @@ Future<Uint8List> makePdf(List<Exercise> exercises) async {
 void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
   pdf.addPage(
     pw.Page(
+      margin: EdgeInsets.all(20.0),
       build: (pw.Context context) {
         return Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Name:",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
             Container(
               height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 350,
-                  child: Column(
-                    children: [
-                      Text("Startzeit:"),
-                      Text("Endzeit:"),
-                    ],
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                Text(
+                  "Start:",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
                   ),
                 ),
-                Column(
-                  children: [
-                    Text("Tag:"),
-                    Text("Dauer:"),
-                  ],
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Text(
+                  "                                                         Ende:",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
                 ),
               ],
             ),
@@ -133,12 +122,76 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
                     fontSize: 20.0,
                   ),
                 ),
-                pw.Checkbox(value: true, name: "Hubba"),
                 Text(
-                  "                                               Fehler:",
+                  "                                                     Fehler:   ",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: PdfColors.black,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: PdfColors.black,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: PdfColors.black,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: PdfColors.black,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: PdfColors.black,
+                      width: 2.0,
+                    ),
                   ),
                 ),
               ],
