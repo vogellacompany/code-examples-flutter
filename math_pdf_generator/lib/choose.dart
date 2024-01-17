@@ -23,7 +23,7 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
             Container(
               padding: const EdgeInsets.all(40),
               child: Text(
-                "Das ist eine App um Matheaufgaben zu erstellen und zu drucken",
+                "Das ist eine App um Matheaufgaben zu erstellen und zu drucken. Nach dem Drucken falte das Blatt so, dass Du die Lösungen nicht siehst.",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
@@ -36,14 +36,14 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
             DropdownMenu(
               width: 250,
               label: Text('Level'),
-              helperText: 'Select your difficulty level',
-              leadingIcon: Icon(Icons.add_chart),
+              helperText: 'Selektiere den Schwierigkeitsgrad',
+              leadingIcon: Icon(Icons.bar_chart_outlined),
               initialSelection: 0,
               dropdownMenuEntries: <DropdownMenuEntry<int>>[
-                DropdownMenuEntry(value: 0, label: 'easy'),
-                DropdownMenuEntry(value: 1, label: 'medium'),
-                DropdownMenuEntry(value: 2, label: 'hard'),
-                DropdownMenuEntry(value: 3, label: 'superhero'),
+                DropdownMenuEntry(value: 0, label: 'Einfach'),
+                DropdownMenuEntry(value: 1, label: 'Mittel'),
+                DropdownMenuEntry(value: 2, label: 'Hart'),
+                DropdownMenuEntry(value: 3, label: 'Superheld'),
               ],
               onSelected: (value) {
                 setState(() {});
@@ -56,8 +56,8 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
             ),
             DropdownMenu(
               width: 250,
-              label: Text('Nr. Pages'),
-              helperText: 'Select the number of pages',
+              label: Text('Anzahl Seiten'),
+              helperText: 'Selektiere die Anzahl der Druckseiten',
               leadingIcon: Icon(Icons.assignment_add),
               initialSelection: 1,
               dropdownMenuEntries: <DropdownMenuEntry<int>>[
@@ -81,11 +81,12 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
                   MaterialPageRoute(
                     builder: (context) => MyHomePage(
                       complexity: level,
+                      pages: pages,
                     ),
                   ),
                 );
               },
-              child: Text("Look at the preview"),
+              child: Text("Schau Dir den Preview an"),
             ),
             // IconButton(onPressed: () {}, icon: Icon(Icons.gamepad_outlined)),
           ],

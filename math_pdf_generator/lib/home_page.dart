@@ -7,7 +7,8 @@ import 'package:math_pdf_generator/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   final int complexity;
-  const MyHomePage({super.key, required this.complexity});
+  final int pages;
+  const MyHomePage({super.key, required this.complexity, required this.pages});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    data = MathProvider.createPageData(widget.complexity);
+    data = MathProvider.createPageData(widget.complexity, widget.pages);
   }
 
   @override
@@ -76,13 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
   String _complexityLevel(int) {
     switch (widget.complexity) {
       case 0:
-        return 'easy';
+        return 'Einfach';
       case 1:
-        return 'medium';
+        return 'Mittel';
       case 2:
-        return 'hard';
+        return 'Hart';
       case 3:
-        return 'superhero';
+        return 'Superheld';
     }
     return '';
   }

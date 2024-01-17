@@ -5,10 +5,10 @@ import 'package:math_pdf_generator/model.dart';
 class MathProvider {
   static Random random = Random();
 
-  static List<Exercise> createPageData(int complexity) {
+  static List<Exercise> createPageData(int complexity, int pages) {
     List<Exercise> exercises = [];
 
-    var numberOfExercises = 56;
+    var numberOfExercises = 28 * pages;
 
     // Wertberechnung
     for (int i = 0; i < numberOfExercises; i++) {
