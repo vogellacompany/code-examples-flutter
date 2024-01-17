@@ -7,7 +7,7 @@ class MathProvider {
     List<Exercise> exercises = [];
     Random random = Random();
 
-    var numberOfExercises = 24;
+    var numberOfExercises = 48;
     int baseValueX = 5;
     int baseValueY = 10;
 

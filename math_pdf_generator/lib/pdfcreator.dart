@@ -32,7 +32,9 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
                 ),
               ],
             ),
-            Container(height: 10),
+            Container(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -60,22 +62,12 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
               height: 1,
               borderStyle: BorderStyle.dashed,
             ),
-            Container(height: 50),
+            Container(
+              height: 10,
+            ),
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
-                // The first row just contains a phrase 'INVOICE FOR PAYMENT'
-                TableRow(
-                  children: [
-                    Padding(
-                      child: Text(
-                        'Start Time',
-                        textAlign: TextAlign.center,
-                      ),
-                      padding: EdgeInsets.all(4),
-                    ),
-                  ],
-                ),
                 // The remaining rows contain each item from the invoice, and uses the
                 // map operator (the ...) to include these items in the list
                 ...aufgaben.map(
@@ -119,6 +111,36 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
                 ),
                 // After the itemized breakdown of costs, show the tax amount for this invoice
                 // In this case, it's just 10% of the invoice amount
+              ],
+            ),
+            Container(
+              height: 20,
+            ),
+            Divider(
+              height: 1,
+              borderStyle: BorderStyle.dashed,
+            ),
+            Container(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Dauer:",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                pw.Checkbox(value: true, name: "Hubba"),
+                Text(
+                  "                                               Fehler:",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
               ],
             ),
           ],
