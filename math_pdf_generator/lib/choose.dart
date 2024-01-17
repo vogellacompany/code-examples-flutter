@@ -78,7 +78,9 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(complexity: level),
+                  ),
                 );
               },
               child: Text("Look at the preview"),

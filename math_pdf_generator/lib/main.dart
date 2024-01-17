@@ -15,9 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Multiplier Exercise',
+      theme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Matheaufgaben Generator'),
+          backgroundColor: Color.fromARGB(255, 11, 9, 80),
         ),
         // body: MyHomePage(),
         body: ExerciseSelectionPage(),

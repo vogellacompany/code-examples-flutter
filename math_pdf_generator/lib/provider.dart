@@ -28,14 +28,14 @@ class MathProvider {
     int baseValueY = 10;
 
     switch (complexity) {
-      case 2:
+      case 1:
         baseValueX = 8;
         baseValueY = 30;
 
-      case 3:
+      case 2:
         baseValueX = 8;
         baseValueY = 100;
-      case 4:
+      case 3:
         baseValueX = 100;
         baseValueY = 100;
     }
@@ -43,29 +43,31 @@ class MathProvider {
     int erster = random.nextInt(baseValueX);
     int zweiter = random.nextInt(baseValueY);
 
-    if (complexity == 1 && erster < 2) {
+    if (complexity == 0 && erster < 2) {
       erster += 2;
     }
 
-    if (complexity == 1 && zweiter < 2) {
+    if (complexity == 0 && zweiter < 2) {
       zweiter += 2;
     }
 
-    if (complexity == 2 && erster < 5) {
+    if (complexity == 1 && erster < 5) {
       erster += 6 - erster + random.nextInt(4);
     }
-    if (complexity == 2 && zweiter < 10) {
+    if (complexity == 1 && zweiter < 10) {
       zweiter += 10;
+    }
+    if (complexity == 2 && erster < 10) {
+      erster += 10;
+    }
+    if (complexity == 2 && zweiter < 50) {
+      zweiter += 50;
+    }
+    if (complexity == 3 && erster < 50) {
+      erster += 50;
     }
 
     if (complexity == 3 && zweiter < 50) {
-      zweiter += 50;
-    }
-    if (complexity == 4 && erster < 50) {
-      zweiter += 50;
-    }
-
-    if (complexity == 4 && erster < 50) {
       zweiter += 50;
     }
 

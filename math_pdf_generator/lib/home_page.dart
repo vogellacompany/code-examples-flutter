@@ -6,15 +6,20 @@ import 'package:math_pdf_generator/previewpage.dart';
 import 'package:math_pdf_generator/provider.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  final int complexity;
+  const MyHomePage({super.key, required this.complexity});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static int complexity = 1;
-  List<Exercise> data = MathProvider.createPageData(complexity);
+  late List<Exercise> data;
+  @override
+  void initState() {
+    super.initState();
+    data = MathProvider.createPageData(widget.complexity);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // Replace the tapped element with a new value
     setState(
       () {
-        data[index] = MathProvider.newExercise(complexity);
+        data[index] = MathProvider.newExercise(widget.complexity);
       },
     );
   }
