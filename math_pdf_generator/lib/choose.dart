@@ -8,57 +8,57 @@ class ExerciseSelectionPage extends StatefulWidget {
 }
 
 class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
-  int complecity = 1;
+  int level = 0;
+  int pages = 0;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            color: Colors.blue,
-            child: Row(
-              children: [
-                DropdownMenu(
-                  initialSelection: 0,
-                  width: 150,
-                  label: Text("Scwierigkeit"),
-                  enableFilter: true,
-                  onSelected: (value) {
-                    if (value != null) {
-                      complecity = value;
-                    }
-                  },
-                  dropdownMenuEntries: [
-                    DropdownMenuEntry(value: 1, label: "Leicht"),
-                    DropdownMenuEntry(value: 2, label: 'Mittel'),
-                    DropdownMenuEntry(value: 3, label: 'Schwer'),
-                    DropdownMenuEntry(value: 4, label: 'Sehr Schwer'),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.all(55),
-                ),
-                DropdownMenu(
-                  initialSelection: 0,
-                  width: 150,
-                  label: Text("Seitenanzahl"),
-                  enableFilter: true,
-                  onSelected: (value) {
-                    if (value != null) {
-                      complecity = value;
-                    }
-                  },
-                  dropdownMenuEntries: [
-                    DropdownMenuEntry(value: 1, label: "1"),
-                    DropdownMenuEntry(value: 2, label: '2'),
-                    DropdownMenuEntry(value: 3, label: '3'),
-                    DropdownMenuEntry(value: 4, label: '4'),
-                  ],
-                ),
-              ],
-            ),
+        children: <Widget>[
+          DropdownMenu(
+            width: 250,
+            label: Text('Level'),
+            helperText: 'Select your difficulty level',
+            leadingIcon: Icon(Icons.add_chart),
+            initialSelection: 0,
+            dropdownMenuEntries: <DropdownMenuEntry<int>>[
+              DropdownMenuEntry(value: 0, label: 'easy'),
+              DropdownMenuEntry(value: 1, label: 'medium'),
+              DropdownMenuEntry(value: 2, label: 'hard'),
+              DropdownMenuEntry(value: 3, label: 'superhero'),
+            ],
+            onSelected: (value) {
+              setState(() {});
+              level = value!;
+            },
           ),
+          //Padding(padding: EdgeInsets.all(12)),
+          SizedBox(
+            height: 50,
+          ),
+          DropdownMenu(
+            width: 250,
+            label: Text('Nr. Pages'),
+            helperText: 'Select the number of pages',
+            leadingIcon: Icon(Icons.assignment_add),
+            initialSelection: 0,
+            dropdownMenuEntries: <DropdownMenuEntry<int>>[
+              DropdownMenuEntry(value: 0, label: '1'),
+              DropdownMenuEntry(value: 1, label: '2'),
+              DropdownMenuEntry(value: 2, label: '3'),
+              DropdownMenuEntry(value: 3, label: '4'),
+            ],
+            onSelected: (value) {
+              setState(() {});
+              pages = value!;
+            },
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          // IconButton(onPressed: () {}, icon: Icon(Icons.gamepad_outlined)),
+          TextButton(onPressed: () {}, child: Text('Lets go!')),
         ],
       ),
     );
