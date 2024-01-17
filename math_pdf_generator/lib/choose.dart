@@ -16,7 +16,6 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: .all(20),
             color: Colors.blue,
             child: Row(
               children: [

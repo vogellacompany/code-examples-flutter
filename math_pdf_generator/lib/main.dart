@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Multiplier Exercise',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Aufgaben'),
+          title: Text('Matheaufgaben Generator'),
         ),
         body: ExerciseSelectionPage(),
       ),
