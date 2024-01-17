@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_pdf_generator/home_page.dart';
 
 class ExerciseSelectionPage extends StatefulWidget {
   ExerciseSelectionPage({super.key});
@@ -10,12 +11,27 @@ class ExerciseSelectionPage extends StatefulWidget {
 class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
   int level = 0;
   int pages = 0;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          // Image.asset('/assets/images/logo.jpeg'),
+          Container(
+            padding: const EdgeInsets.all(40),
+            child: Text(
+              "Das ist eine App um Matheaufgaben zu erstellen und zu drucken",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: 50,
+          ),
           DropdownMenu(
             width: 250,
             label: Text('Level'),
@@ -57,8 +73,13 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
           SizedBox(
             height: 50,
           ),
+          ElevatedButton(
+            onPressed: () {
+              MyHomePage();
+            },
+            child: Text("Look at the preview"),
+          ),
           // IconButton(onPressed: () {}, icon: Icon(Icons.gamepad_outlined)),
-          TextButton(onPressed: () {}, child: Text('Lets go!')),
         ],
       ),
     );

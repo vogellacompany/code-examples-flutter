@@ -2,10 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:math_pdf_generator/choose.dart';
-import 'package:math_pdf_generator/home_page.dart';
-import 'package:math_pdf_generator/model.dart';
-import 'package:math_pdf_generator/previewpage.dart';
-import 'package:math_pdf_generator/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +19,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Matheaufgaben Generator'),
         ),
+        // body: MyHomePage(),
         body: ExerciseSelectionPage(),
       ),
     );

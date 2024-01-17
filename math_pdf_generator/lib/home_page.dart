@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:math_pdf_generator/main.dart';
 import 'package:math_pdf_generator/model.dart';
 import 'package:math_pdf_generator/previewpage.dart';
 import 'package:math_pdf_generator/provider.dart';
