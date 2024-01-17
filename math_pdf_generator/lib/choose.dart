@@ -10,7 +10,7 @@ class ExerciseSelectionPage extends StatefulWidget {
 
 class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
   int level = 0;
-  int pages = 0;
+  int pages = 1;
 
   @override
   Widget build(BuildContext context) {
