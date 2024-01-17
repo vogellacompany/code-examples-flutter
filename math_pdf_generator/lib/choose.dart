@@ -59,12 +59,12 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
               label: Text('Nr. Pages'),
               helperText: 'Select the number of pages',
               leadingIcon: Icon(Icons.assignment_add),
-              initialSelection: 0,
+              initialSelection: 1,
               dropdownMenuEntries: <DropdownMenuEntry<int>>[
-                DropdownMenuEntry(value: 0, label: '1'),
-                DropdownMenuEntry(value: 1, label: '2'),
-                DropdownMenuEntry(value: 2, label: '3'),
-                DropdownMenuEntry(value: 3, label: '4'),
+                DropdownMenuEntry(value: 1, label: '1'),
+                DropdownMenuEntry(value: 2, label: '2'),
+                DropdownMenuEntry(value: 3, label: '3'),
+                DropdownMenuEntry(value: 4, label: '4'),
               ],
               onSelected: (value) {
                 setState(() {});
@@ -79,7 +79,9 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHomePage(complexity: level),
+                    builder: (context) => MyHomePage(
+                      complexity: level,
+                    ),
                   ),
                 );
               },

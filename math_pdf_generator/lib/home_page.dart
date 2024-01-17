@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  subtitle: Text("Easy"),
+                  subtitle: Text(_complexityLevel(widget.complexity)),
                   trailing: Text(
                     entry.value.answer,
                     style: TextStyle(
@@ -71,6 +71,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.picture_as_pdf_outlined),
       ),
     );
+  }
+
+  String _complexityLevel(int) {
+    switch (widget.complexity) {
+      case 0:
+        return 'easy';
+      case 1:
+        return 'medium';
+      case 2:
+        return 'hard';
+      case 3:
+        return 'superhero';
+    }
+    return '';
   }
 
   void _handleTap(int index) {
