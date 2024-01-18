@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_pdf_generator/model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
