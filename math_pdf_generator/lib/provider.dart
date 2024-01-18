@@ -24,54 +24,84 @@ class MathProvider {
   }
 
   static Exercise newExercise(int complexity) {
-    int baseValueX = 10;
-    int baseValueY = 10;
+    int baseValueX = 0;
+    int baseValueY = 0;
 
     switch (complexity) {
+      case 0:
+        baseValueX = 10;
+        baseValueY = 10;
+        break;
       case 1:
-        baseValueX = 8;
-        baseValueY = 30;
-
+        baseValueX = 10;
+        baseValueY = 40;
+        break;
       case 2:
-        baseValueX = 8;
+        baseValueX = 10;
         baseValueY = 100;
+        break;
       case 3:
+        baseValueX = 30;
+        baseValueY = 100;
+        break;
+      case 4:
         baseValueX = 100;
         baseValueY = 100;
+        break;
     }
 
     int erster = random.nextInt(baseValueX);
     int zweiter = random.nextInt(baseValueY);
 
-    if (complexity == 0 && erster < 2) {
-      erster += 2;
+    // Avoid to easy values
+    switch (complexity) {
+      case 0:
+        if (erster < 2) {
+          erster += 2;
+        }
+        if (zweiter < 2) {
+          zweiter += 2;
+        }
+        break;
+      case 1:
+        if (erster < 5) {
+          erster += 6 - erster + random.nextInt(4);
+        }
+        if (zweiter < 10) {
+          zweiter += 10;
+        }
+        break;
+      case 2:
+        if (erster < 5) {
+          erster += 5;
+        }
+        if (zweiter < 50) {
+          zweiter += 50;
+        }
+        if (zweiter % 10 == 0) {
+          zweiter += random.nextInt(10);
+        }
+        break;
+      default:
+        if (erster < 30) {
+          erster += 30;
+        }
+        if (zweiter < 50) {
+          zweiter += 50;
+        }
+        if (zweiter % 10 == 0) {
+          zweiter += random.nextInt(10);
+        }
+        break;
+    }
+    var exchange = random.nextInt(2);
+    String aufgabe;
+    if (exchange == 0) {
+      aufgabe = '$erster x $zweiter';
+    } else {
+      aufgabe = '$zweiter x $erster';
     }
 
-    if (complexity == 0 && zweiter < 2) {
-      zweiter += 2;
-    }
-
-    if (complexity == 1 && erster < 5) {
-      erster += 6 - erster + random.nextInt(4);
-    }
-    if (complexity == 1 && zweiter < 10) {
-      zweiter += 10;
-    }
-    if (complexity == 2 && erster < 10) {
-      erster += 10;
-    }
-    if (complexity == 2 && zweiter < 50) {
-      zweiter += 50;
-    }
-    if (complexity == 3 && erster < 50) {
-      erster += 50;
-    }
-
-    if (complexity == 3 && zweiter < 50) {
-      zweiter += 50;
-    }
-
-    String aufgabe = '$erster x $zweiter';
     String loesung = (erster * zweiter).toString();
     return Exercise(aufgabe, loesung);
   }
