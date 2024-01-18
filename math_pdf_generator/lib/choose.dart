@@ -43,7 +43,8 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
                 DropdownMenuEntry(value: 0, label: 'Einfach'),
                 DropdownMenuEntry(value: 1, label: 'Mittel'),
                 DropdownMenuEntry(value: 2, label: 'Hart'),
-                DropdownMenuEntry(value: 3, label: 'Superheld'),
+                DropdownMenuEntry(value: 3, label: 'Richtig Hard'),
+                DropdownMenuEntry(value: 4, label: 'Superheld'),
               ],
               onSelected: (value) {
                 setState(() {});
