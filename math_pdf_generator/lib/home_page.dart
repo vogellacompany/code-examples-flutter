@@ -84,6 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         return 'Hart';
       case 3:
+        return ' Richtig Hart';
+      case 4:
         return 'Superheld';
     }
     return '';

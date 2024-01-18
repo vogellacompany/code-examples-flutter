@@ -223,6 +223,8 @@ String getStringForComplexity(int complexity) {
     case 2:
       return "Hart";
     case 3:
+      return "Richtig Hart";
+    case 4:
       return "Superheld";
   }
 
