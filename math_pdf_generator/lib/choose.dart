@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:math_pdf_generator/home_page.dart';
+import 'package:gap/gap.dart';
+import 'package:math_pdf_generator/datatable.dart';
 
 class ExerciseSelectionPage extends StatefulWidget {
   ExerciseSelectionPage({super.key});
@@ -43,7 +44,7 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
                 DropdownMenuEntry(value: 0, label: 'Einfach'),
                 DropdownMenuEntry(value: 1, label: 'Mittel'),
                 DropdownMenuEntry(value: 2, label: 'Hart'),
-                DropdownMenuEntry(value: 3, label: 'Richtig Hart'),
+                DropdownMenuEntry(value: 3, label: 'Richtig Hard'),
                 DropdownMenuEntry(value: 4, label: 'Superheld'),
               ],
               onSelected: (value) {
@@ -80,7 +81,7 @@ class _ExerciseSelectionPageState extends State<ExerciseSelectionPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHomePage(
+                    builder: (context) => DataTablePreview(
                       complexity: level,
                       pages: pages,
                     ),

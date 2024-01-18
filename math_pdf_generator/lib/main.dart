@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Matheaufgaben Generator'),
+          title: Text('PDF Matheaufgaben Generator'),
           backgroundColor: Color.fromARGB(255, 11, 9, 80),
         ),
         // body: MyHomePage(),
