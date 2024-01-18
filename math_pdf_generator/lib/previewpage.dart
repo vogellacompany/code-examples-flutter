@@ -5,7 +5,9 @@ import 'package:printing/printing.dart';
 
 class PdfPreviewPage extends StatelessWidget {
   final List<Exercise> exercises;
-  PdfPreviewPage({Key? key, required this.exercises}) : super(key: key);
+  final int complexity;
+  PdfPreviewPage({Key? key, required this.exercises, required this.complexity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class PdfPreviewPage extends StatelessWidget {
         title: Text('PDF Preview'),
       ),
       body: PdfPreview(
-        build: (context) => makePdf(exercises),
+        build: (context) => makePdf(exercises, complexity),
       ),
     );
   }

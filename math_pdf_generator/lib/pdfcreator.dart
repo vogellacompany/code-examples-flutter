@@ -1,23 +1,24 @@
 import 'dart:typed_data';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_pdf_generator/model.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/widgets.dart';
 
-Future<Uint8List> makePdf(List<Exercise> exercises) async {
+Future<Uint8List> makePdf(List<Exercise> exercises, int complexity) async {
   final pdf = Document();
 
   const int chunkSize = 28;
 
   for (int i = 0; i < exercises.length; i += chunkSize) {
     List<Exercise> chunk = exercises.sublist(i, i + chunkSize);
-    createPdfPage(pdf, chunk);
+    createPdfPage(pdf, chunk, complexity);
   }
   return pdf.save();
 }
 
-void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
+void createPdfPage(pw.Document pdf, List<Exercise> aufgaben, int complexity) {
   pdf.addPage(
     pw.Page(
       margin: EdgeInsets.all(20.0),
@@ -27,25 +28,7 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
             Container(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Start:",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                  ),
-                ),
-                Text(
-                  "                                                         Ende:",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ],
-            ),
+            createHeader(complexity),
             Container(height: 10),
             Divider(
               height: 1,
@@ -80,7 +63,7 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
 
                         Expanded(
                           child: Text("         "),
-                          flex: 7,
+                          flex: 9,
                         ),
                         // Again, with a flex parameter of 1, the cost widget will be 33% of the
                         // available width.
@@ -88,7 +71,7 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
                           child: Padding(
                             child: Text(
                               e.answer,
-                              textAlign: TextAlign.right,
+                              textAlign: TextAlign.center,
                             ),
                             padding: EdgeInsets.all(5),
                           ),
@@ -113,7 +96,7 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
               height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Dauer:",
@@ -201,4 +184,48 @@ void createPdfPage(pw.Document pdf, List<Exercise> aufgaben) {
       },
     ),
   );
+}
+
+pw.Row createHeader(int complexity) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Text(
+        "Datum:",
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20.0,
+        ),
+      ),
+      Expanded(
+        child: SizedBox(
+          width: 0,
+        ),
+      ),
+      Container(
+        child: Text(
+          "Schwierigkeit: ${getStringForComplexity(complexity)}",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
+String getStringForComplexity(int complexity) {
+  switch (complexity) {
+    case 0:
+      return "Leicht";
+    case 1:
+      return "Mittel";
+    case 2:
+      return "Hart";
+    case 3:
+      return "Superheld";
+  }
+
+  return '';
 }

@@ -66,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(
                 builder: (context) => PdfPreviewPage(
                       exercises: data,
+                      complexity: widget.complexity,
                     )),
           );
         },
