@@ -78,6 +78,9 @@ class MathProvider {
         if (zweiter < 50) {
           zweiter += 50;
         }
+        if (erster % 10 == 0) {
+          erster += random.nextInt(10);
+        }
         if (zweiter % 10 == 0) {
           zweiter += random.nextInt(10);
         }
