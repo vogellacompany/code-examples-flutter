@@ -2,6 +2,8 @@
 
 Diese App generiert Matheaufgaben und ermöglicht das ausdrucken der Aufgaben.
 
+Mit dieser App kann man Grundrechenarten üben. Es sind 4 unterschiedliche Schwierigkeitsgrade möglich. Aufgaben werden erzeugt und als PDF zum Ausdrucken zur Verfügung gestellt.
+
 ## Applikation für den Release bauen
 
 Es existieren zwei mögliche Formate: App bundle und APK. App bundle wird vom Goolge Play Store bevorzugt.
