@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasker/task.dart';
+import 'package:tasker/model/task.dart';
 
 class NewTaskDialog extends StatelessWidget {
   final controller = TextEditingController();
