@@ -17,3 +17,5 @@ Der Bundle ist dann hier zu finden: /code-examples-flutter/math_pdf_generator/bu
 
 NOTE: Eventuell musst man flutter clean ausführen, nachdem gradle files geändert wurden, bevor man einen neune appbundle erzeugt.
 
+Die Version der App sollte in der pubspec.yaml hochgesetzt werden _version: 0.1.1_.
+
